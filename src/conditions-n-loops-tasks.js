@@ -219,8 +219,15 @@ function convertNumberToString(numberStr) {
  *  '0123210'   => true
  *  'qweqwe'    => false
  */
-function isPalindrome(/* str */) {
-  throw new Error('Not implemented');
+function isPalindrome(str) {
+  let str2 = '';
+  for (let i = str.length - 1; i >= 0; i -= 1) {
+    str2 += str[i];
+  }
+  if (str === str2) {
+    return true;
+  }
+  return false;
 }
 
 /**
@@ -261,8 +268,15 @@ function getIndexOf(str, letter) {
  *  12345, 0    => false
  *  12345, 6    => false
  */
-function isContainNumber(/* num, digit */) {
-  throw new Error('Not implemented');
+function isContainNumber(num, digit) {
+  let currentNum = num;
+  while (currentNum > 0) {
+    if (currentNum % 10 === digit) {
+      return true;
+    }
+    currentNum = Math.floor(currentNum / 10);
+  }
+  return false;
 }
 
 /**
@@ -322,8 +336,18 @@ function getSpiralMatrix(/* size */) {
  *    [7, 8, 9]         [9, 6, 3]
  *  ]                 ]
  */
-function rotateMatrix(/* matrix */) {
-  throw new Error('Not implemented');
+function rotateMatrix(matrix) {
+  const n = matrix.length;
+  const newmatrix = matrix;
+  let tmp = 0;
+  for (let i = 0; i < n; i += 1) {
+    for (let j = i + 1; j < n; j += 1) {
+      tmp = newmatrix[i][j];
+      newmatrix[i][j] = newmatrix[j][i];
+      newmatrix[j][i] = tmp;
+    }
+  }
+  return newmatrix;
 }
 
 /**
